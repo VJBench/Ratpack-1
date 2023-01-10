@@ -1,0 +1,11 @@
+{
+    "buggy_file_path": "ratpack-core/src/main/java/ratpack/server/internal/NettyHandlerAdapter.java",
+    "buggy_method":[[117,222]],
+    "buggy_line":[[159]],
+    "bug_type": "replace",
+    "compile_cmd": "./gradlew :ratpack-core:build -x test",
+    "test_cmd" : "./gradlew :ratpack-core:test",
+    "CVE": "CVE-2019-17513",
+    "skip_compile_cmd": false,
+    "github_url":"https://github.com/ratpack/ratpack/commit/efb910d38a96494256f36675ef0e5061097dd77d"
+}
