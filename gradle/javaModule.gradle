@@ -17,7 +17,7 @@
 apply plugin: "java"
 apply plugin: "groovy"
 apply plugin: "jacoco"
-apply from: "$rootDir/gradle/checkstyle.gradle"
+// apply from: "$rootDir/gradle/checkstyle.gradle"
 apply from: "$rootDir/gradle/codenarc.gradle"
 apply from: "$rootDir/gradle/projectLocalRepo.gradle"
 

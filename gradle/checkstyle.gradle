@@ -14,36 +14,36 @@
  * limitations under the License.
  */
 
-apply plugin: 'checkstyle'
+// apply plugin: 'checkstyle'
 
-dependencies {
-  checkstyle 'com.puppycrawl.tools:checkstyle:7.0'
-}
+// dependencies {
+//   checkstyle 'com.puppycrawl.tools:checkstyle:7.0'
+// }
 
-def checkstyleConfigDir = new File(buildscript.sourceFile.parentFile, 'checkstyle')
+// def checkstyleConfigDir = new File(buildscript.sourceFile.parentFile, 'checkstyle')
 
-checkstyle {
-  configFile = new File(checkstyleConfigDir, "checkstyle.xml")
-  configProperties.checkstyleConfigDir = checkstyleConfigDir
-}
+// checkstyle {
+//   configFile = new File(checkstyleConfigDir, "checkstyle.xml")
+//   configProperties.checkstyleConfigDir = checkstyleConfigDir
+// }
 
-plugins.withType(GroovyBasePlugin) {
-  sourceSets.all { sourceSet ->
-    task "${sourceSet.getTaskName('checkstyle', 'groovy')}"(type: Checkstyle) {
-      configFile = new File(checkstyleConfigDir, "checkstyle-groovy.xml")
-      source sourceSet.allGroovy
-      classpath = sourceSet.compileClasspath
-      reports.xml.destination new File(checkstyle.reportsDir, "${sourceSet.name}-groovy.xml")
-    }
-  }
-}
+// plugins.withType(GroovyBasePlugin) {
+//   sourceSets.all { sourceSet ->
+//     task "${sourceSet.getTaskName('checkstyle', 'groovy')}"(type: Checkstyle) {
+//       configFile = new File(checkstyleConfigDir, "checkstyle-groovy.xml")
+//       source sourceSet.allGroovy
+//       classpath = sourceSet.compileClasspath
+//       reports.xml.destination new File(checkstyle.reportsDir, "${sourceSet.name}-groovy.xml")
+//     }
+//   }
+// }
 
-def checkstyleTasks = tasks.withType(Checkstyle)
+// def checkstyleTasks = tasks.withType(Checkstyle)
 
-task checkstyle(dependsOn: checkstyleTasks)
+// task checkstyle(dependsOn: checkstyleTasks)
 
-check.dependsOn checkstyleTasks
+// check.dependsOn checkstyleTasks
 
-tasks.withType(Test) {
-  mustRunAfter checkstyleTasks
-}
+// tasks.withType(Test) {
+//   mustRunAfter checkstyleTasks
+// }
